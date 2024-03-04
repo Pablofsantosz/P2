@@ -1,0 +1,402 @@
+//Questão 1:
+# include <stdio.h>
+
+int main(){
+    int number ;
+    printf("Digite um numero inteiro :" );
+    scanf("%d",&number);
+
+    if (number >10){
+        printf("esse valor é maior q 10 .\n");
+    }else if (number== 10){
+        printf("esse valor é igual a 10 .\n");
+    }else {
+        printf("esse valor é menor que 10 .\n");
+    }
+
+    return 0;
+
+
+}
+//Questão 2 :
+# include <stdio.h>
+# include <stdlib.h>
+int main(){
+    char ch ;
+    printf("Digite um simbolo de pontuação :\n");
+    ch = getchar();
+    switch (ch)
+    {
+    case '.':
+        printf("ponto.\n");
+        break;
+    case ',' :
+        printf("Virgula .\n");
+        break;
+    case ':':
+        printf("dois pontos");
+        break;
+    case ';':
+        printf("Ponto evirgula\n");
+        break;
+    
+    default:
+        printf("nao é potuação : \n");
+        break;
+    }
+    return 0 ;
+
+}
+//Questao 3 :
+# include <stdio.h>
+
+int main(){
+    int numero;
+    printf("informe um numero abaixo : \n");
+    scanf("%d",&numero);
+    if (numero>0){
+        printf("numero positivo");
+    }else if (numero<0){
+        printf("Numero negativo");
+    }else {
+        printf(" o numero é igual a 0");
+    }
+    
+    return 0 ;
+    
+}
+//Questao 4 :
+# include <stdio.h>
+
+int main(){
+    int idade ;
+    printf("informe sua idade : \n");
+    scanf("%d",&idade);
+    if (idade<18){
+        printf("Voce é menor de idade :\n");
+    }else {
+        printf("Vocé é maior de idade :\n");
+    }
+    return 0;
+}
+//Quetsao 5:
+# include <stdio.h>
+
+int main(){
+    int maior,n1,n2;
+    printf("Informe um numero abaixo :\n");
+    scanf("%d",&n1);
+
+    printf("informe um segundo numero abaixo :\n");
+    scanf("%d",&n2);
+
+    if (n1>n2){
+      printf("O 1 numero digitado é maior .");
+    } else if(n2>n1){
+      printf("o 2 numero digitado é maior .");
+    } else {
+      printf("os numeros sao iguais .");
+      return 0 ;
+    }
+}
+//Questao 6: 
+# include <stdio.h>
+
+int main(){
+  int numero;
+  printf("informe um numero abaixo:\n");
+  scanf("%d",&numero);
+  if (numero%2==0){
+    printf("numero par.");
+  }else{
+    printf("numero impar.");
+
+  }
+  return 0;
+}
+//Questao 7:
+# include <stdio.h>
+
+int main(){
+    int nota1,nota2,nota3;
+    printf("informe a nota 1  a seguir :\n");
+    scanf("%d",&nota1);
+    
+    printf("informe a nota 2 a seguir :\n");
+    scanf("%d",&nota1);
+    
+    printf("informe a nota3 a seguir :\n");
+    scanf("%d",&nota1);
+    
+    int media;
+    media = (nota1+nota2+nota3)/2;
+    if(media>=7){
+      printf("aluno aprovado");
+    }else {
+      printf("aluno reprovado");
+    }
+    return 0 ;
+}
+//Quetao 9:
+# include <stdio.h>
+// posso usar o getchar ou o scanf(%c)
+int main(){
+    char letra ;
+    printf("informe uma letra abaixo");
+    letra = getchar();
+    if (letra != 'a' && letra!='e' && letra!='i' && letra!='o'&& letra!='u'){
+      printf("é uma consoante");
+    }else{
+      printf("é uma vogal");
+
+    }
+    return 0 ;
+}
+//Questao 12:
+# include <stdio.h>
+
+int main(){
+  int mes;
+  printf("informe um numero e eu lhe direi qual mes ele representa:\n");
+  scanf("%d",&mes);
+  switch (mes){
+    case 1:
+      printf("1-janeiro");
+      break;
+    case 2:
+      printf("2-fevereiro");
+      break;
+    case 3:
+      printf("3-março");
+      break;
+    case 4:
+      printf("4-abril");
+      break;
+    case 5:
+      printf("5-maio");
+      break;
+    case 6:
+      printf("6-junho");
+      break;
+    case 7:
+      printf("7-julho");
+      break;
+    case 8:
+      printf("8-agosto");
+      break;
+    case 9:
+      printf("9-setembro");
+      break;
+    case 10:
+      printf("10-outubro");
+      break;
+    case 11:
+      printf("11-novembro");
+      break;
+    case 12:
+      printf("12-dezembro");
+      break;
+    default:
+    printf("invalido");
+    return 0 ;
+  }
+}
+//Questao 13:
+#include <stdio.h>
+
+int main() {
+    int salario;
+    float taxaaumento1, taxaaumento2;
+    printf("Informe seu salário: ");
+    scanf("%d", &salario);
+
+    taxaaumento1 = 10.0 / 100 * salario; 
+    taxaaumento2 = 15.0 / 100 * salario;
+
+    if (salario <= 1500) {
+        printf("O valor do salário será: %.2f\n", salario + taxaaumento1); 
+    } else {
+        printf("Seu salário será: %.2f\n", salario + taxaaumento2); 
+    }
+    return 0;
+}
+
+//Questao 16:
+# include <stdio.h>
+
+int main(){
+    int numero ;
+    printf("informe um numero abaixo avaliando o atendimento abaixo:\n");
+    scanf("%d",&numero);
+    switch (numero){
+      case 1 :
+        printf("Muito bom");
+        break;
+      case 2 :
+        printf("Bom");
+        break;
+      case 3:
+        printf("Regular");
+        break;
+      case 4:
+        printf("Insuficiente");
+        break;
+      case 5:
+        printf("Muito insuficiente");
+        break;
+      default:
+        printf("invalido");
+      return 0 ;
+    }
+   
+}
+//Questao 17 :(if else)
+# include <stdio.h>
+
+int main(){
+    int numero ;
+    printf("informe um numero abaixo e ira ser informado na sua tela o dia de semana correspondente:\n");
+    scanf("%d",&numero);
+    if (numero==1){
+      printf("1-Domingo.");
+
+    }else if(numero==2){
+      printf("2-Segunda.");
+
+    }else if (numero==3){
+      printf("3-Terça.");
+
+    }else if (numero==4){
+      printf("4-Quarta.");
+
+    }else if (numero==5){
+      printf("5-Quinta.");
+      
+    }else if(numero==6){
+      printf("6-Sexta.");
+
+    }else if (numero==7){
+      printf("7-Sabado.");
+
+    }else {
+      printf("numero nao corresponde");
+    }
+    return 0 ;
+}  
+//Questao 17 :(usando swtch case)
+# include <stdio.h>
+
+int main(){
+    int numero ;
+    printf("informe um numero abaixo e ira ser informado na sua tela o dia de semana correspondente:\n");
+    scanf("%d",&numero);
+   switch (numero){
+    case 1 :
+      printf("1-domingo");
+      break;
+    case 2:
+      printf("2-segunda");
+      break;
+    case 3:
+      printf("3-terça");
+      break;
+    case 4:
+      printf("4-quarta");
+      break;
+    case 5:
+      printf("5-quinta");
+    case 6:
+      printf("6-sexta");
+      break;
+    case 7:
+      printf("7-sabado");
+      break;
+    default:
+      printf("nao equivale");
+
+    return 0;
+   }
+}
+//Questao 19:
+# include <stdio.h>
+
+int main(){
+    int idade;
+    printf("informe sua idade abaixo:\n ");
+    scanf("%d",&idade);
+    if (idade>= 0 && idade<= 1 ){
+      printf("Voce é um bebe .\n");
+    }else if (idade>1 && idade<=12){
+      printf("voce é uma criança .\n");
+    }else if (idade>12 && idade<=18){
+      printf("Voce é um adolecente . \n");
+    }else if(idade > 18){
+      printf("voce é um adulto");
+
+    }
+    return 0 ;
+}
+//Questao 20:
+# include <stdio.h>
+
+int main(){
+    char letra ;
+    printf("informe se voce qual seu estado civil solteiro(s), casado(c),divociado(d), viuvo(v):\n");
+    scanf("%c",&letra);
+    switch (letra){
+      case 's':
+            printf("Solteiro\n");
+            break;
+        case 'c':
+            printf("Casado\n");
+            break;
+        case 'd':
+            printf("Divorciado\n");
+            break;
+        case 'v':
+            printf("Viúvo\n");
+            break;
+        default:
+            printf("Estado civil inválido\n");
+            break; 
+
+    return 0;
+}
+}
+
+//Questao 21:
+# include <stdio.h>
+
+int main(){
+  int n1,n2,soma,mult,variavel;
+  float divisao,sub;
+  printf("informe um numero abaixo:\n");
+  scanf("%d",&n1);
+
+  printf("informe um segundo numero:\n");
+  scanf("%d",&n2);
+  soma = n1+n2;
+  mult=n1*n2;
+  divisao=n1/n2;
+  sub =n1-n2;
+  printf("Agora informe abaixo uma opçao para equação ,1-soma,2-multiplicação,3-divisao,4-subtração :\n");
+  scanf("%d",&variavel);
+  switch(variavel){
+    case 1 :
+      printf("A soma é %d",soma);
+      break;
+    case 2:
+      printf("A multiplicação é %d",mult);
+      break;
+     case 3:
+      printf("A divisao é %f",divisao);
+      break;
+    case 4:
+      printf("A subtração é %.1f",sub);
+      break;
+    default:
+      printf("valor invalido");
+  }
+  return 0;
+}
+
