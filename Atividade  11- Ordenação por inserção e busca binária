@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+
+int busca_binaria(int vetor[], int tamanho, int chave, int *iteracoes) {
+    int inicio = 0, fim = tamanho - 1, meio;
+
+    *iteracoes = 0; 
+
+    while (inicio <= fim) {
+        meio = (inicio + fim) / 2;
+        (*iteracoes)++;
+
+        if (vetor[meio] == chave)
+            return meio; 
+        else if (vetor[meio] < chave)
+            inicio = meio + 1; 
+        else
+            fim = meio - 1; 
+    }
+
+    return -1;
+}
+
+int main() {
+    int vetor[] = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19}; // Exemplo de vetor ordenado
+    int tamanho = sizeof(vetor) / sizeof(vetor[0]);
+    int chave = 11;
+    int iteracoes, posicao;
+
+    posicao = busca_binaria(vetor, tamanho, chave, &iteracoes);
+
+    if (posicao != -1)
+        printf("O valor %d foi encontrado na posição %d com %d iterações.\n", chave, posicao, iteracoes);
+    else
+        printf("O valor %d não foi encontrado no vetor com %d iterações.\n", chave, iteracoes);
+
+    return 0;
+}
