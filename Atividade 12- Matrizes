@@ -384,7 +384,94 @@ int main (){
 }
 //Questao 14:
 
-//Questao 15:
+//Questao 19:
+#include <stdio.h>
+int soma_c_impares(int matriz[][6]){
+    int soma_impares=0;
+    for(int i = 0;i<3;i++){
+        for(int j =0;j<6;j++){
+            if (j%2!=0 ){
+                soma_impares+=matriz[i][j];
+            }
+        }
+    }
+    return soma_impares;
+
+}
+
+int media_A(int matriz[][6]){
+    int media_aritme = 0;
+    int numero_temos=0;
+    for(int i = 0 ;i<3;i++){
+        for(int j =0 ; j < 6;j++){
+            if (j==2 || j ==4){
+                media_aritme+=matriz[i][j];
+                numero_temos+=1;
+
+            }
+        }
+    }
+    media_aritme =media_aritme/numero_temos;
+    return media_aritme;
+
+}
+
+void troca_matriz(int matriz[][6]) {
+    for (int i = 0; i < 3; i++) {
+        int soma_colunas = matriz[i][0] + matriz[i][1]; // Calcula a soma das colunas 1 e 2
+        matriz[i][5] = soma_colunas; // Substitui o valor da sexta coluna pela soma
+    }
+}
+
+void imrpimir(int matriz[][6]){
+    for(int i = 0 ; i<3 ; i++){
+        for(int j = 0 ; j<6 ;j++){
+            printf("%4d",matriz[i][j]);
+        }
+    printf("\n");
+    }
+}
+
+int main (){
+    int numero;
+    int matriz[3][6]={{1,2,3,4,5,6},{7,8,9,10,11,12},{13,14,15,16,17,18}};
+    int resultado;
+    printf("informe a sua opção desejada:\n1.Imprima a soma de todos os elementos das colunas ímpares.\n2.Imprima a média aritmética dos elementos da segunda e quarta colunas.\n3.Substitua os valores da sexta coluna pela somados valores das colunas 1 e 2 , e printe a matriz\n");
+    scanf("%d",&numero);
+    switch (numero)
+    {
+    case 1:
+         resultado =soma_c_impares(matriz);
+        
+        printf("A soma do numeros das colunas impares sao :%d",resultado);
+        
+        break;
+    
+    case 2:
+        resultado= media_A(matriz);
+        printf("Entao essa é a media aritmetrica da 2 e 4 coluna :%d",resultado);
+       
+        break;
+    
+    case 3:
+        printf("Essa é a matriz original:\n");
+        imrpimir(matriz);
+        printf("\n\n");
+        troca_matriz(matriz);
+        printf("Essa é a matriz modificada :\n");
+        imrpimir(matriz);
+        break;
+ 
+    default:
+
+        break;
+    }
+
+
+
+}
+
+
 //Questao 20:
 #include <stdio.h>
 void Soma_matrizes(int matriz_1[][2],int matriz_2[][2],int matriz_resultante[][2]){
