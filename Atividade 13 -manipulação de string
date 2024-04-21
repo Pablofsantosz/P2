@@ -1,1 +1,235 @@
+//Q uestao 1:
+#include <stdio.h>
+int main(){
+    printf("Informe uma string:\n");
+    char name[10];
+    scanf("%9[^\n]s",name);
+    printf("Essa foi a string informada :%s\n",name);
 
+}
+//Questao 4:
+#include <stdio.h>
+#include <string.h>
+
+int main (){
+    char name[10];
+    printf("informe um nome abaixo :\n");
+    scanf("%9[^\n]s",name);
+    printf("O nome informado foi:%s\n",name);
+    
+    printf("essa sao sao as 4 primeiras letras do nome :\n");
+    for(int i = 0 ; i<4;i++){
+        printf("%c",name[i]);
+    }
+    printf("\n");
+
+}
+//Questao 5:
+#include <stdio.h>
+#include <string.h>
+
+int main (){
+    char name[10];
+    printf("informe um nome abaixo :\n");
+    scanf("%9[^\n]s",name);
+    printf("O nome informado foi:%s\n",name);
+    int qt_letras=0;
+    for(int i = 0 ;i<strlen(name);i++){
+        if(name[i]!= ' '){
+            qt_letras++;
+        }
+    }
+    printf("A quantidade de letras nessa string foi :%d",qt_letras);
+    
+}
+//Questao 6:
+#include <stdio.h>
+#include <string.h>
+
+int main (){
+    char nome[25];
+    int idade;
+    int sexo;
+    printf("informe seu nome abaixo:\n");
+    scanf("%24[^\n]s",nome);
+    printf("informe sua idade:\n");
+    scanf("%d",&idade);
+    printf("informe seu sexo numero 1==masculinho , 2==feminino :\n");
+    scanf("%d",&sexo);
+    if(sexo!=1 &&sexo!=2){
+        printf("Error,sexo invalido:\n");
+        return -1;
+    }
+    if(sexo==2 && idade<=25){
+        printf("Usuario:%s foi Aceita pelo sistema.",nome);
+
+    }else{
+        printf("O usuario :%s nao foi aceita.",nome);
+    }
+
+
+} 
+//Questao 7 :
+#include <stdio.h>
+#include <string.h>
+int main(){
+    char str[10];
+    int qt_1= 0 ;
+    printf("Informe uma string abaixo :");
+    scanf("%9[^\n]s",str);
+    for(int i = 0 ; i < strlen(str);i++){
+        if(str[i]=='1'){
+            qt_1+= 1;
+        }
+    }
+    printf("A string informada foi : %s\n",str);
+    printf(" A quantidade de numeros 1 foi :%d \n",qt_1);
+
+}
+//Questao 8:
+#include <stdio.h>
+#include <string.h>
+int main(){
+    char str[10];
+    
+    printf("Informe uma string abaixo :");
+    scanf("%9[^\n]s",str);
+    printf("String original :%s\n",str);
+    for(int i = 0 ; i < strlen(str);i++){
+        if(str[i]=='0'){
+            str[i]='1';
+        }
+    }
+    printf("String modificada:%s",str);
+
+}
+//Questao 9 :
+#include <stdio.h>
+#include <string.h>
+int main(){
+    char nome[10];
+    
+    printf("informe um nome abaixo ele so ira printar se a 1 letra for [a]:\n");
+    scanf("%9[^\n]s",nome);
+    for(int i = 0 ;i<1;i++){
+        if(nome[0]=='a' || nome[0]=='A'){
+            printf("Nome valido :%s",nome);
+        }else{
+            printf("nome invalido");
+        }
+    }
+
+}
+//Questao 10 :
+int main() {
+    char palavra[100];
+
+    printf("Digite uma palavra: ");
+    scanf("%s", palavra);
+
+    printf("Palavra invertida: ");
+    
+    //  de trás para frente 
+    for (int i = strlen(palavra) - 1; i >= 0; i--) {
+        printf("%c", palavra[i]);
+    }
+    
+    printf("\n");
+
+    return 0;
+}
+//questao 10 outra forma :
+int main() {
+    char nome [100];
+    char nome_invertido[100];
+    printf("informe um numero abaixo:\n");
+    scanf("%99[^\n]s",nome);
+    printf("Nome informado:%s\n",nome);
+    for(int i = 0;i<strlen(nome);i++){
+        nome_invertido[i] = nome[strlen(nome) - i - 1];
+    }
+    nome_invertido[strlen(nome)]='\0';
+        
+                
+    printf("%s",nome_invertido);
+
+} 
+//questao 11 :
+#include <stdio.h>
+#include <string.h>
+
+int main (){
+    char str[20];
+    printf("informe uma string abaixo e o programa ire retirar as vogais:\n");
+    scanf("%19[^\n]s",str);
+    printf("String original :%s\n",str);
+    for(int i = 0 ; i <strlen(str);i++){
+        if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'||str[i]=='A'||str[i]=='E'||str[i]=='I'||str[i]=='O'||str[i]=='U'){
+            str[i]= ' ';
+        }
+    }
+    
+    printf("String modificada:%s",str);
+}
+//Questao 12:
+#include <stdio.h>
+#include <string.h>
+int main (){
+    char str[20];
+    char troca[20];
+    printf("Informe uma string abaixo e eu irei trocar todas as vogais[a,e,i,o,u] por outra letra :\n");
+    scanf("%19[^\n]s",str);
+    
+    printf("informe a letra da substituição :\n");
+    scanf("%s",troca);
+    printf("String originial :%s\n",str);
+    
+    
+    for(int i = 0 ; i<strlen(str);i++){
+        if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'||str[i]=='A'||str[i]=='E'||str[i]=='I'||str[i]=='O'||str[i]=='U'){
+            str[i]=troca[0];
+            
+    }
+}
+    printf("String pos transformação :%s\n",str);
+}
+//questao 13:
+#include <stdio.h>
+#include <string.h>
+
+int main (){
+    char palavra[20];
+    int qt_nulos= 0 ;
+    printf("informe uma frase e eu irei contar quantos caranteles brancos tem na frase :\n");
+    scanf("%20[^\n]s",palavra);
+    for(int i = 0 ; i<strlen(palavra);i++){
+        if(palavra[i]==' '){
+            qt_nulos++;
+        }
+    }
+    printf("Essa foi a string informada :%s\n",palavra);
+    printf("essa foi a quantidade de termos nulos(espaços )na string:%d",qt_nulos);
+
+}
+
+//questao 17:
+#include <stdio.h>
+#include <string.h>
+
+int main (){
+    char palavra[20];
+    int j =0;
+    printf("informe uma frase e eu irei contar quantos caranteles brancos tem na frase :\n");
+    scanf("%20[^\n]s",palavra);
+    for(int i = 0 ; i<strlen(palavra);i++){
+        if(palavra[i]==' '){
+            palavra[j]=palavra[i];
+            j++;    
+        }
+    }
+    
+    printf("Essa foi a string informada :%s\n",palavra);
+    printf("esse é o numero de caracteres vazios tem na string: %d",j);
+    
+
+}
