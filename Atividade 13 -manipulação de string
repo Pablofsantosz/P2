@@ -233,3 +233,31 @@ int main (){
     
 
 }
+// Questao 26 :
+#include <stdio.h>
+#include <string.h>
+
+
+int main ( ){
+    char frase[50];
+    char frase_modifi[50];
+    printf("informe uma frase de ate 50 caracteres abaixo :\n");
+    scanf("%[^\n]s",frase);
+    strcpy(frase_modifi, frase);
+
+    for(int i = 0 ;i<strlen(frase_modifi);i++){
+        if (frase_modifi[i]=='a'){
+            frase_modifi[i]='d';
+            
+        }else if (frase_modifi[i]=='b'){
+            frase_modifi[i]='e';
+        }else if (frase_modifi[i]=='c'){
+            frase_modifi[i]='f';
+
+        }
+    }
+    printf("A string original é: %s\n", frase);
+    printf("A string codificada é: %s\n", frase_modifi);
+    
+
+}
