@@ -471,6 +471,47 @@ int main (){
 
 }
 
+//Questao 17 :
+#include <stdio.h>
+
+    int main(){
+    int matriz_princ[3][3];
+    int matriz_resultado[1][3];
+    
+
+    printf("informe os numeros inteiros  abaixo no preenchimento de uma matriz\n");
+    for(int i = 0;i<3;i++){
+        for(int j = 0 ;j<3;j++){    
+            printf("informe na posição:[%d][%d]\n",i,j);
+            scanf("%d",&matriz_princ[i][j]);
+        }
+    }
+    printf("=== Èssa foi a matriz informada :=====\n");
+    for(int i = 0;i<3;i++){
+        for(int j = 0 ;j<3;j++){    
+            printf("%4d",matriz_princ[i][j]);
+            
+        }
+    printf("\n");
+    }
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            matriz_resultado[0][j] += matriz_princ[i][j];
+        }
+    }
+    
+    
+    printf(" essa é a matriz depois :\n");
+    for(int i = 0;i<1;i++){
+        for(int j = 0 ;j<3;j++){    
+            printf("%4d",matriz_resultado[i][j]);
+            
+        }
+    printf("\n");
+    
+
+}
+}
 
 //Questao 20:
 #include <stdio.h>
