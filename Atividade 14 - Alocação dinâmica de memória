@@ -435,6 +435,57 @@ int main (){
     return 0 ;
 
 }
+questao 12
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *ptr;
+    int numero_digitado;
+    int qt_numeros = 0;
+    int capacidade = 10;
+
+    ptr = malloc(capacidade * sizeof(int));
+    if (ptr == NULL) {
+        printf("Erro na alocação de memória.\n");
+        return 1;
+    }
+
+    printf("Informe números (digite 0 para parar):\n");
+
+    while (1) {
+        printf("Informe um número na posição [%d]: ", qt_numeros);
+        scanf("%d", &numero_digitado);
+
+        if (numero_digitado == 0) {
+            break;
+        }
+
+        if (qt_numeros == capacidade) {
+            capacidade += 10;
+            int *novo_ptr = realloc(ptr, capacidade * sizeof(int));
+            if (novo_ptr == NULL) {
+                printf("Erro na realocação de memória.\n");
+                free(ptr);
+                return 1;
+            }
+            ptr = novo_ptr;
+        }
+
+        ptr[qt_numeros] = numero_digitado;
+        qt_numeros++;
+    }
+
+    printf("Números digitados:\n");
+    for (int i = 0; i < qt_numeros; i++) {
+        printf("%d ", ptr[i]);
+    }
+    printf("\n");
+
+    free(ptr);
+    return 0;
+}
+
 
 
 
