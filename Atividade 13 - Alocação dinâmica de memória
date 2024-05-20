@@ -1,0 +1,441 @@
+// Questao 1:
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+
+    int *ponteiro =malloc(5* sizeof(int));
+    if (ponteiro!=NULL){
+        for(int i = 0 ; i <5;i++){
+            printf("Informe um numero dentro do ponteiro na posição :%d\n",i);
+            scanf("%d",&ponteiro[i]);
+    }
+}
+
+    for(int i = 0; i<5 ; i++){
+        printf("%d ",ponteiro[i]);
+    }
+    free(ponteiro);
+    ponteiro= NULL;
+    
+}
+//Questao 2:
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+    int *ptr;
+    int tamanho;
+
+    printf("informe o tamanho do vetor abaixo :\n");
+    scanf("%d",&tamanho);
+    
+    ptr = malloc(tamanho * sizeof(int));
+    if (ptr == NULL) {
+        printf("Erro ao alocar memória\n");
+        return 1; 
+    }
+
+    printf("Agora informe o valor dentro de casa posição no vetor de %d posições.\n",tamanho);
+    for(int i = 0 ;i<tamanho;i++){
+        printf("informe na posição [%d]\n",i);
+        scanf("%d",&ptr[i]);
+
+    }
+    printf("Valores do vetor:\n");
+    for (int i = 0; i < tamanho; i++) {
+        printf("%d ", ptr[i]);
+    }
+    printf("\n");
+    free(ptr);
+    ptr = NULL;
+}
+//Questao 3:
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(void){
+
+    int tamanho;
+    int * ptr;
+    int qt_pares= 0 ;
+    int qt_impares= 0 ;
+    
+    printf(" Informe o valor do vetor :\n");
+    scanf("%d",&tamanho);
+
+    ptr = malloc(tamanho * sizeof(int));
+    if(ptr==NULL){
+        printf("Erro ao alocar memória\n");
+        return 1; 
+    }
+    for( int i = 0 ;i <tamanho ; i++){
+        printf(" Informe o numero dentro do ponteiro na posição [%d]:\n",i);
+        scanf("%d",&ptr[i]);
+        if( ptr[i]%2==0){
+            qt_pares++;
+        }else{
+            qt_impares++;
+        }
+    }
+    printf("Essa foi a qauntidade de numeros impares :%d\n",qt_impares);
+    printf("Essa foi a qauntidade de numeros pares :%d\n",qt_pares );
+    printf("Valores do vetor:\n");
+    for (int i = 0; i < tamanho; i++) {
+        printf("%d ", ptr[i]);
+    }
+    printf("\n");
+    free(ptr);
+    ptr = NULL;
+}
+//Questao 4;
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+char  alocaca(int tamanho){
+    char *str = malloc(tamanho* sizeof(char));
+    if(str==NULL){
+        printf("erro na al0cação");
+        return -1;
+    }
+    return str;
+
+}
+
+void removerVogaus(char *str,int tamanho){
+     int len = strlen(tamanho);
+    char *newStr = (char *)malloc(len + 1);
+
+    if (newStr == NULL) {
+        printf("Erro na alocação de memória\n");
+        exit(1);
+    }
+    for( int i = 0 ; i <strlen(tamanho);i++){
+
+
+        
+    }
+
+}
+int main (){
+    int tamanho;
+    char *str;
+    printf("informe o tamanho dessa string:\n");
+    scanf("%d",&tamanho);
+
+        
+    
+
+
+
+}
+//Questao 5:
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main ( ){
+    int *vetor ;
+    int N_tamanho;
+    int numero_digitado;
+
+    printf("informe o tamanho do vetor:\n");
+    scanf("%d",&N_tamanho);
+    vetor =malloc(N_tamanho*sizeof(int));
+    if(vetor==NULL){
+        printf("error ao alocar");
+        return -1;
+    }
+    for(int i = 0 ; i <N_tamanho;i++){
+        printf(" informe um numero para ficar na posicao[%d]:\n",i);
+        scanf("%d",&vetor[i]);
+    }
+    printf("agora informe um numero e eu irei informar se existem dividores dele dentro do vetor :\n");
+    scanf("%d",&numero_digitado);
+
+    printf("\n\n");
+    printf("numero digitado :%d\n",numero_digitado);
+
+    printf("vetor completo informado -->");
+    for(int i = 0 ; i <N_tamanho;i++){
+        printf("%d",vetor[i]);
+    }
+    
+    printf("\n\n");
+
+    printf("multiplos de [%d] dentro do vetor foram :\n",numero_digitado);
+    for(int i =0;i<N_tamanho;i++){
+        if(vetor[i]%numero_digitado== 0){
+            printf(" %d ",vetor[i]);
+        }
+    }
+    free(vetor);
+    vetor=NULL;
+
+}
+
+//Questao 6:
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main (){
+    int tamanho;//tamanho do vetor para guardar as infors
+    int *ptr;//O ponteiro
+    char resposta[4];//um char para guardar o s ou n do loop
+    int numero_informado;//o para escolhe o caso do switch case 
+    int escolha;//o numero que ira se alocar dentro de uma posicao tal do vetor
+    int posicao;
+
+    printf("Informe o tamanho :\n");
+    scanf("%d",&tamanho);
+
+    ptr = calloc(tamanho , sizeof(int ));
+       if (ptr == NULL) {
+        printf("Erro ao alocar memória.\n");
+        return 1;
+    }
+    do{ 
+        printf(" Informe a alternativa \n1-Inserir um valor em uma determinada posição;\n2-Consultar o valor contido em uma determinada posição;\n");
+        scanf("%d",&numero_informado);
+        switch (numero_informado)
+        {
+        case 1:
+            printf("Escolha 1 selecionada:\n-Insira um valor : \n");
+            scanf(" %d",&escolha);
+
+            printf("-Agora a posição desejada:\n");
+            scanf(" %d",&posicao);
+            if (posicao >= 0 && posicao < tamanho) {
+                    ptr[posicao] = escolha;
+                    printf("Número guardado com sucesso.\n");
+                } else {
+                    printf("Posição inválida.\n");
+                }
+            
+        
+            break;
+            
+        case 2:
+            printf("Escolha 2 selecionada:\n-Insira um a posiçao desejada : \n");
+            scanf(" %d",&posicao);
+            printf("Esse é o valor  guardado dentro da posicao[%d]  é o valor :%d\n",posicao,ptr[posicao]);
+                    
+        
+            break;
+        default:
+            break;
+        }
+        printf("Deseja continuar [s] ou [n] ??:");
+        scanf(" %c",resposta);
+    
+
+        
+
+    }while(strcmp(resposta, "s") == 0 || strcmp(resposta, "S") == 0);
+    free(ptr);
+    return 0 ;
+
+
+    
+}
+
+//Questao 7:
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main (){
+    int *vetor;
+    int tamanho=1500;
+    int numero_zeros =0;
+    vetor =calloc(tamanho,sizeof(int)) ;
+    if(vetor == NULL){
+        printf("error na alocaçãp");
+        return -1;
+    }
+    for(int i = 0; i<1500;i++){
+        if(vetor[i]==0){
+            numero_zeros++;
+        }
+    }
+    printf(" TOTAL antes do preenchimento %d\n",numero_zeros);
+
+    //pra associar cada espaço do vetor a seu indice:
+    for( int i =0;i<tamanho;i++){
+        vetor[i]=i;
+    }
+
+    printf("AS 10 primeiras posicoes \n->>");
+    for(int i = 0 ; i<10;i++){
+        printf(" %d ",vetor[i]);
+
+    }
+
+    printf("\n\n");
+
+    printf("AS 10 ultimas posicoes \n->>");
+    for(int i = 1490 ; i<tamanho;i++){
+        printf(" %d ",vetor[i]);
+
+    }
+    
+    free(vetor);
+    return 0 ;
+}
+
+
+//Questao 8:
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main (){
+    int numero;
+    int *ptr;
+    int capacidade = 2;
+    int tamanho =0;
+    
+    ptr = malloc(2*sizeof(int));
+    if(ptr == NULL){
+        printf("error ao alocar.");
+        return 1;
+    }
+    printf(" informe numeros (informe um negativo para parar .)\n");
+    while(1){
+        scanf(" %d",&numero);
+        if(numero<0){
+            break;
+        }
+        if(capacidade == tamanho){
+            capacidade *= 2 ;
+            ptr=realloc(ptr,capacidade*sizeof(int));
+            if (ptr == NULL) {
+                printf("Erro ao realocar memória.\n");
+                return 1;
+            }
+        }
+        ptr[tamanho]=numero;
+        tamanho++;
+    }
+    printf("Números lidos:\n");
+    for (int i = 0; i < tamanho; i++) {
+        printf("%d ", ptr[i]);
+    }
+    printf("\n");
+
+    free(ptr);
+
+}
+
+//Questao 9:
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int buscar_vetor(int numero_buscado,int *ptr[],int linhas,int colunas){
+    
+    for(int i = 0 ;i<linhas;i++){
+        for(int j = 0;j<colunas;j++){
+            if(ptr[i][j]==numero_buscado){
+                return 0;
+            }else{
+                return 1;
+
+            }
+        }
+    }
+
+}
+
+int main (){
+    int linhas ,colunas;
+    int **ptr;
+    int numero_buscado;
+    int variavel;
+   
+    printf("infome o numero de linhas:\n");
+    scanf("%d",&linhas);
+
+    printf("infome o numero de colunas :\n");
+    scanf("%d",&colunas);
+    
+    ptr = malloc(linhas*sizeof(int)); 
+
+    for (int i = 0; i < linhas; i++) {
+        ptr[i] = (int *)malloc(colunas * sizeof(int));
+    }
+
+    
+    for(int i = 0 ;i<linhas;i++){
+        
+        for(int j = 0 ;j<colunas;j++){
+
+            printf("informe o valor dentro da posição[%d][%d]",i,j);
+            scanf("%d",&ptr[i][j]);
+        }
+    }
+
+    printf("informe o numero buscado dentro do vetor:\n");
+    scanf("%d",&numero_buscado);
+
+    variavel = buscar_vetor(numero_buscado,ptr,linhas,colunas);
+
+    if(variavel ==0){
+        printf("numero foi encontrado.");
+    }else{
+        printf("O numero nao esta dentro do vetor.");
+    }
+    for (int i = 0; i < linhas; i++) {
+        free(ptr[i]);
+    }
+    free(ptr);
+
+
+}
+
+//Questao 10:
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+int main (){
+    int linhas , colunas ;
+    int **ptr;
+    printf("informe o numero de linhas :\n");
+    scanf(" %d",&linhas);
+    printf("informe o numero de colunas:\n");
+    scanf(" %d",&colunas);
+    ptr = malloc(linhas*sizeof(int));
+    for(int i = 0 ;i<linhas;i++){
+        ptr = malloc(colunas*sizeof(int));
+    }
+
+    for(int i = 0 ; i<linhas ; i++){
+        for(int j = 0 ; j<colunas ; j++){
+            printf("informe o valor que fica guardado  na posicao[%d][%d]\n",i,j);
+            scanf(" %d",&ptr[i][j]);
+
+        }
+    }
+
+    printf("== Essa foi a matriz informada ==\n");
+    for(int i = 0 ; i<linhas ; i++){
+        for(int j = 0 ; j<colunas ; j++){
+            printf("%2d",ptr[i][j]);
+        }
+        printf("\n");
+    }
+    for(int i = 0 ;i<linhas;i++){
+        free(ptr[i]);
+    }
+    free(ptr);
+    return 0 ;
+
+}
+
+
+
+
