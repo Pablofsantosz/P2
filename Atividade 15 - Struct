@@ -285,7 +285,7 @@ int main (){
     return 0 ;
 
 }
-//questao9:
+//questao 9:
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -371,6 +371,350 @@ int main() {
 
     return 0;
 }
+
+//questao 11:
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Carro {
+    int ano;
+    char marca[15];
+    int preco;
+
+    
+};
+
+int main(){
+    struct Carro carro1,carro2,carro3,carro4,carro5;
+    struct Carro *carros=malloc(5*sizeof(struct Carro));
+
+    carros[0]=carro1;
+    carros[1]=carro2;
+    carros[2]=carro3;
+    carros[3]=carro4;
+    carros[4]= carro5;
+
+    int preco;
+    for(int i = 0 ;i<5;i++){
+        printf("===carro[%d]===",i+1);
+        
+        printf("informe o ano do carro[%d]:\n",i+1);
+        scanf(" %d",&carros[i].ano);
+
+        printf("infome a marca: \n");
+        scanf(" %[^\n]s",carros[i].marca);
+
+        printf("informe o preco;");
+        scanf(" %d",&carros[i].preco);
+
+    }
+        
+
+    while(1){
+        
+        printf("Informe o preço que voce deseja procurar de carro;\n");
+        printf("Digite 0 se deseja parar o sistemas:");
+        scanf("%d",&preco);
+        
+        if(preco==0){
+            printf("sistema finalizado");
+            return 1;
+        }
+        printf("====os carros de ate %d encontrados foram ====\n",preco);
+        for(int i = 0; i<5;i++){
+            if(carros[i].preco<=preco){
+                
+                printf("marca :%s\n",carros[i].marca);
+                printf("ano: %d\n",carros[i].ano);
+                printf("preco:%d\n",carros[i].preco);
+                printf("\n\n");
+            }
+        }
+    }
+}
+//Questao12:
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Livros{
+    char titulo[30];
+    char autor[15];
+    int ano ;
+
+
+};
+
+
+int main (){
+    struct Livros livro1,livro2,livro3,livro4,livro5;
+    struct Livros *livros = malloc(5*sizeof(struct Livros));
+    if (livros == NULL) {
+        printf("Erro ao alocar memória para os alunos aprovados.\n");
+        return 1;
+    }
+    
+    livros[0]=livro1;
+    livros[1]=livro2;
+    livros[2]=livro3;
+    livros[3]=livro4;
+    livros[4]=livro5;
+
+    char livro_buscado[15];
+
+    for(int i = 0 ;i<5;i ++){
+        printf("===Livro[%d]===\n",i+1);
+
+        printf("O titulo do livro:\n");
+        scanf(" %[^\n]s",livros[i].titulo);
+
+        printf("Informe o nome do autor:\n");
+        scanf(" %[^\n]s",livros[i].autor);
+
+        printf("Ano de lançamento:\n");
+        scanf(" %d",&livros[i].ano);
+    }
+    
+    int livro_encontrado = 0;
+    printf("informe o livro que voce deseja buscar:\n");;
+    scanf(" %[^\n]s",livro_buscado);
+    for(int i = 0;i<5;i++){
+       if (strcmp(livros[i].titulo, livro_buscado) == 0) {
+            livro_encontrado = 1;
+            printf("Livro encontrado:\n");
+            printf("Nome: %s\n", livros[i].titulo);
+            printf("Ano: %d\n", livros[i].ano);
+            printf("Autor: %s\n", livros[i].autor);
+            break;
+
+    }
+    }
+
+    if (!livro_encontrado) {
+        printf("Livro não encontrado.\n");
+    }
+    free(livros);
+
+    
+    
+    }
+// Questao 13:
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Eletro {
+    char nome[50];
+    int pontecia;
+    int valor;
+
+};
+int main (){
+    struct Eletro eletrodomestico1,eletrodomestico2,eletrodomestico3,eletrodomestico4,eletrodomestico5;
+    struct Eletro elestros[5]={eletrodomestico1,eletrodomestico2,eletrodomestico3,eletrodomestico4,eletrodomestico5};
+
+    int tempo= 0;
+    int consumo_total=0;
+
+
+    for(int i = 0 ;i<5;i++){
+        printf("Informe o nome do produto :\n");
+        scanf(" %[^\n]s",elestros[i].nome);
+
+        printf("A pontecia:\n");
+        scanf(" %d",&elestros[i].pontecia);
+
+        printf("O valor em horas;\n");
+        scanf(" %d",&elestros[i].valor);
+
+        consumo_total+=elestros[i].valor;
+
+    }
+    printf("informe o tempo de uso :\n");
+    scanf(" %d",&tempo);
+
+
+    printf("Esse foi o consumo total (valor):%d\n",tempo*consumo_total);
+    for(int i = 0;i<5;i++ ){
+        float porcetagem = ((elestros[i].valor*100)/consumo_total);
+
+        printf("o aparelho :%s",elestros[i].nome);
+
+        printf("Puxou %2.f pocento ",porcetagem);
+    }
+
+    
+
+
+}
+//questao 14:
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Produto{
+    int codigo;
+    char nome[50];
+    int preco;
+    int quantidade;
+};
+
+
+int main (){
+    struct Produto produto1,produto2,produto3,produto4,produto5;
+    struct Produto produtos[5]={produto1,produto2,produto3,produto4,produto5};
+
+    int codigo_buscado;
+    int qt_desejada;
+    for(int i = 0 ;i <5;i++){
+        printf("===Produto [%d]===\n",i+1);
+
+        printf("Informe o codigo do produto;\n");
+        scanf(" %d",&produtos[i].codigo);
+
+
+        printf("O nome :\n");
+        scanf(" %[^\n]s",produtos[i].nome);
+
+        printf("Preço:\n");
+        scanf(" %d",&produtos[i].preco);
+
+        printf("Quantidade em estoque:\n");
+        scanf("     %d",&produtos[i].quantidade);
+    }
+    printf("Esses sao os codigos dos produtos em estoque:\n");
+    
+    for(int i = 0 ; i<5;i++){
+        printf("O produto :%s\n",produtos[i].nome);
+        printf(" codigo :%d\n",produtos[i].codigo);
+    }
+    
+   
+    while(1){
+        
+
+
+        for(int i = 0 ;i<5;i++){
+            printf("Agora informe O codigo que voce deseja :\n");
+            scanf(" %d",&codigo_buscado);
+       
+            if(codigo_buscado==0){
+                printf("sistema finalizado");
+                return 1;
+            }
+        
+            printf("informe a quantidade que voce deseja desse produto:\n");
+            scanf("%d",&qt_desejada);
+
+
+
+            if(codigo_buscado=produtos[i].codigo){
+                if(produtos[i].quantidade>qt_desejada){
+                    produtos[i].quantidade -=qt_desejada;
+                    printf("Quantidade adequada foi retirada\n");
+                    printf("Produto encontrado :%s\n",produtos[i].nome);
+                    printf("CODIGO:%d\n",produtos[i].codigo);
+                    printf("estoque atual do produto :%d",produtos[i].quantidade);
+
+                }else{
+                    printf("A quantidade desejada nao tem no estoque:\n");
+                }
+            }
+
+
+
+        }
+
+    }
+
+
+
+
+}
+//questao 15:
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+
+struct Ingrediente {
+    char nome[30];
+    char quantidade[20];  
+};
+
+
+struct Receita {
+    char nome[25];
+    int quantidade_ingredientes;
+    struct Ingrediente *ingredientes;
+};
+
+int main() {
+    struct Receita receitas[5];
+
+   
+    for (int i = 0; i < 5; i++) {
+        printf("=== Receita[%d] ===\n", i + 1);
+
+        printf("Nome da receita: ");
+        scanf(" %[^\n]s", receitas[i].nome);
+
+        printf("Quantidade de ingredientes: ");
+        scanf("%d", &receitas[i].quantidade_ingredientes);
+
+        
+        receitas[i].ingredientes = malloc(receitas[i].quantidade_ingredientes * sizeof(struct Ingrediente));
+        if (receitas[i].ingredientes == NULL) {
+            printf("Erro ao alocar .\n");
+            return 1;
+        }
+
+        for (int j = 0; j < receitas[i].quantidade_ingredientes; j++) {
+            printf("Ingrediente[%d]Nome: ", j + 1);
+            scanf(" %[^\n]s", receitas[i].ingredientes[j].nome);
+
+            printf("Ingrediente[%d]Quantidade: ", j + 1);
+
+            scanf(" %[^\n]s", receitas[i].ingredientes[j].quantidade);
+        }
+    }
+
+    char nome_receita_buscada[26];
+    while (1) {
+        printf("Informe o nome da receita que você deseja buscar (ou uma string vazia para sair): ");
+        scanf(" %[^\n]s", nome_receita_buscada);
+
+        
+        if (strlen(nome_receita_buscada) == 0) {
+            break;
+        }
+
+        int receita_encontrada = 0;
+        for (int i = 0; i < 5; i++) {
+            if (strcmp(receitas[i].nome, nome_receita_buscada) == 0) {
+                receita_encontrada = 1;
+                printf("Receita encontrada:\n");
+                printf("Nome: %s\n", receitas[i].nome);
+                printf("Quantidade de ingredientes: %d\n", receitas[i].quantidade_ingredientes);
+                for (int j = 0; j < receitas[i].quantidade_ingredientes; j++) {
+                    printf("Ingrediente[%d] - Nome: %s, Quantidade: %s\n", j + 1, receitas[i].ingredientes[j].nome, receitas[i].ingredientes[j].quantidade);
+                }
+                break;
+            }
+        }
+
+        if (!receita_encontrada) {
+            printf("Receita não encontrada.\n");
+        }
+    }
+
+   
+    for (int i = 0; i < 5; i++) {
+        free(receitas[i].ingredientes);
+    }
+
+    return 0;
+}
+
+
 
 
 
